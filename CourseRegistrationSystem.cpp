@@ -76,3 +76,59 @@ class Student
 		cout<<"Exiting...";
 	}		
 };
+
+class Course
+{
+	public:
+	int fee;
+	string id,cname,instructor,duration;
+	
+	void addCourse()
+	{
+		ofstream f1;
+		f1.open("Courses.txt", ios::app); 
+		cout<<"Enter course id:";
+	    cin>>id;
+		cout<<"Enter course name:";
+		cin.ignore();
+		getline(cin, cname);
+		cout<<"Enter course fee:";
+		cin>>fee;
+		cout<<"Enter course duration:";
+		cin.ignore();
+		getline(cin, duration);
+		cout<<"Enter instructor name:";
+		getline(cin, instructor);
+		f1<<id<<","<<cname<<","<<fee<<","<<duration<<","<<instructor<<endl;
+		f1.close();
+		cout<<"Course is added succesfully!"<<endl;
+		cout<<endl;
+        cout<<"4.Add course"<<endl;
+        cout<<"5.Update course"<<endl;
+        cout<<"6.Delete course"<<endl;
+        cout<<"7.View courses"<<endl;
+        cout<<"8.Register for course"<<endl;
+        cout<<"9.View registered students"<<endl;	
+	}
+	
+	void viewCourse()
+	{
+		ifstream f1;
+		string line;
+		f1.open("Courses.txt");
+		cout<<"Courses:"<<endl;
+		cout<<"------------------------------------------------------------------------------------------------------------------------"<<endl;
+		while(getline(f1, line))
+		{
+			cout<<line<<endl;
+		}
+		f1.close();
+		cout<<endl;
+		cout<<"4.Add course"<<endl;
+        cout<<"5.Update course"<<endl;
+        cout<<"6.Delete course"<<endl;
+        cout<<"7.View courses"<<endl;
+        cout<<"8.Register for course"<<endl;
+        cout<<"9.View registered students"<<endl;	
+	}	
+};
