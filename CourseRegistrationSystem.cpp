@@ -132,3 +132,120 @@ class Course
         cout<<"9.View registered students"<<endl;	
 	}	
 };
+
+
+class Admin:public Student,public Course
+{
+	public:	
+	void updateCourse()
+	{
+		string courseId,idToUpdate,line;
+		bool flag=false;
+		cout<<"Enter course id to update:";
+		cin>>idToUpdate;
+		ifstream f1;
+		f1.open("Courses.txt");
+		ofstream f2("TempCourses.txt");
+		while(getline(f1, line))
+		{			
+            courseId=line.substr(0,3);  
+			if(courseId != idToUpdate)
+			{
+				f2<<line<<endl;
+			}
+			if(courseId == idToUpdate)
+			{
+				flag=true;
+				cout<<"Enter course id:";
+        	    cin>>id;
+	         	cout<<"Enter course name:";
+	        	cin.ignore();
+	         	getline(cin, cname);
+	        	cout<<"Enter course fee:";
+	        	cin>>fee;
+	        	cout<<"Enter course duration:";
+	         	cin.ignore();
+	        	getline(cin, duration);
+	        	cout<<"Enter instructor name:";
+	        	getline(cin, instructor);
+	        	f2<<id<<","<<cname<<","<<fee<<","<<duration<<","<<instructor<<endl;
+			}	
+		}
+		f1.close();
+		f2.close();
+		remove("Courses.txt");        // Delete the original file
+        rename("TempCourses.txt", "Courses.txt");    // Rename the temporary file to the original file name
+        if(flag==true)
+        {
+        	cout<<"Course is updated succesfully!";	
+    		cout<<endl;
+    		cout<<"4.Add course"<<endl;
+            cout<<"5.Update course"<<endl;
+            cout<<"6.Delete course"<<endl;
+            cout<<"7.View courses"<<endl;
+            cout<<"8.Register for course"<<endl;
+            cout<<"9.View registered students"<<endl;
+		}
+		if(flag==false)
+		{
+			cout<<"Course with the given ID not found."<<endl;
+			cout<<endl;
+    		cout<<"4.Add course"<<endl;
+            cout<<"5.Update course"<<endl;
+            cout<<"6.Delete course"<<endl;
+            cout<<"7.View courses"<<endl;
+            cout<<"8.Register for course"<<endl;
+            cout<<"9.View registered students"<<endl;
+		}
+	}
+	
+	void deleteCourse()
+	{
+		string courseId,idToDelete,line;
+		bool flag=false;
+		cout<<"Enter course id to delete:";
+		cin>>idToDelete;
+		ifstream f1;
+		f1.open("Courses.txt");
+		ofstream f2("TempCourses.txt");
+		while(getline(f1, line))
+		{			
+            courseId=line.substr(0,3);  
+			if(courseId != idToDelete)
+			{
+				f2<<line<<endl;
+			}
+			if(courseId == idToDelete)
+			{
+				flag=true;
+			}	
+		}
+		f1.close();
+		f2.close();
+		remove("Courses.txt");        // Delete the original file
+        rename("TempCourses.txt", "Courses.txt");    // Rename the temporary file to the original file name
+        if(flag==true)
+        {
+        	cout<<"Course is deleted succesfully!";	
+    		cout<<endl;
+    		cout<<"4.Add course"<<endl;
+            cout<<"5.Update course"<<endl;
+            cout<<"6.Delete course"<<endl;
+            cout<<"7.View courses"<<endl;
+            cout<<"8.Register for course"<<endl;
+            cout<<"9.View registered students"<<endl;
+		}
+		if(flag==false)
+		{
+			cout<<"Course with the given ID not found."<<endl;
+			cout<<endl;
+    		cout<<"4.Add course"<<endl;
+            cout<<"5.Update course"<<endl;
+            cout<<"6.Delete course"<<endl;
+            cout<<"7.View courses"<<endl;
+            cout<<"8.Register for course"<<endl;
+            cout<<"9.View registered students"<<endl;
+		}			
+	}
+}
+	
