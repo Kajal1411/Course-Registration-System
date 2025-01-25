@@ -294,4 +294,58 @@ class Admin:public Student,public Course
         cout<<"9.View registered students"<<endl;	
 	}		
 };
+int main()
+{	
+	Admin a;
+	Course c;
+	int choice;
+    do 
+	{       
+        cout<<"1.Registration"<<endl;
+    	cout<<"2.login"<<endl;
+    	cout<<"3.Exit"<<endl;
+    	cout<<endl;
+    	cout<<"Enter choice:";
+        cin >> choice;
+        //cin.ignore(); // Ignore the newline character left by cin
+        switch (choice) {
+            case 1:
+                a.registration();
+                break;
+            case 2:
+                a.login();
+                break;
+            case 3:
+                a.exit();
+                break;
+            case 4:
+            	c.addCourse();
+            	break;
+            case 5:
+            	a.updateCourse();
+            	break;
+            case 6:
+				a.deleteCourse();
+				break;
+			case 7:
+				c.viewCourse();
+				break;
+			case 8:
+				a.courseRegistration();
+				break;
+			case 9:
+				a.viewRegisteredStudents();
+				break;
+            default:
+                cout<<"Invalid choice.Please try again!"<<endl;
+                cout<<"4.Add course"<<endl;
+                cout<<"5.Update course"<<endl;
+                cout<<"6.Delete course"<<endl;
+                cout<<"7.View courses"<<endl;
+                cout<<"8.Register for course"<<endl;
+                cout<<"9.View registered students"<<endl;	
+        }
+    } 
+	while(choice!=3);	
+}
 	
