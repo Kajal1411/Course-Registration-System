@@ -1,0 +1,6 @@
+kajal pawar,1111,admin
+sanket pawar,2222,student
+sakshi jadhav,7612,student
+
+namrata jadhav,4444,admin
+kajal,1111,admin

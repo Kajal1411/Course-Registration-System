@@ -1,0 +1,7 @@
+101,java full stack,72000,6 months,namrata mam
+102,python full stack,50000,5 months,kajal mam
+103,sql,35000,4 monts,kishor sir
+104,plsql,25000,3 months,kishor sir
+105,.net full stack,40000,4 months,vidhya mam
+106,power BI,50000,2 months,puja mam
+107,data analysis,60000,6 monts,puja mam
