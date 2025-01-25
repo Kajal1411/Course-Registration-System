@@ -247,5 +247,51 @@ class Admin:public Student,public Course
             cout<<"9.View registered students"<<endl;
 		}			
 	}
-}
+	void courseRegistration()
+	{
+		ofstream f1;
+		f1.open("CourseRegistration.txt", ios::app); 
+		cout<<"Enter your name:";
+		cin.ignore();
+    	getline(cin, name);
+	    cout<<"Enter your mobile number:";
+    	cin>>mob;
+    	cout<<"enter email:";
+    	cin.ignore();
+    	getline(cin, email);
+		cout<<"Enter course name:";
+		getline(cin, cname);
+		f1<<name<<","<<mob<<","<<email<<","<<cname<<endl;
+		f1.close();
+		cout<<"You are succesfully registered for course!"<<endl;
+		cout<<endl;
+    	cout<<"4.Add course"<<endl;
+        cout<<"5.Update course"<<endl;
+        cout<<"6.Delete course"<<endl;
+        cout<<"7.View courses"<<endl;
+        cout<<"8.Register for course"<<endl;
+        cout<<"9.View registered students"<<endl;
+	}
+	
+	void viewRegisteredStudents()
+	{
+	    ifstream f1;
+		string line;
+		f1.open("CourseRegistration.txt");
+		cout<<"Registered students for courses:"<<endl;
+		cout<<"------------------------------------------------------------------------------------------------------------------------"<<endl;
+		while(getline(f1, line))
+		{
+			cout<<line<<endl;
+		}
+		f1.close();
+		cout<<endl;
+		cout<<"4.Add course"<<endl;
+        cout<<"5.Update course"<<endl;
+        cout<<"6.Delete course"<<endl;
+        cout<<"7.View courses"<<endl;
+        cout<<"8.Register for course"<<endl;
+        cout<<"9.View registered students"<<endl;	
+	}		
+};
 	
